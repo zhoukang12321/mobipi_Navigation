@@ -277,7 +277,7 @@ https://github.com/user-attachments/assets/d41efe0d-b6a8-448c-be4f-830ec517c7b5
 
 ---
 
-# 🧠 在 RoboTHOR 中生成带语言指令的数据集
+# 🧠 在 RoboTHOR 中生成带语言指令的数据集，以便在Robocasa中使用
 
 本项目介绍如何使用 [AI2-THOR](https://github.com/allenai/ai2thor) 和 [RoboTHOR](https://github.com/allenai/robothon) 框架生成包含自然语言指令的任务数据集（如“请去卧室”、“打开冰箱”），可用于训练和评估基于视觉与语言的导航策略（Vision-and-Language Navigation, VLN）。
 
