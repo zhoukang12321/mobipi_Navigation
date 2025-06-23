@@ -32,7 +32,8 @@ chmod +x install.sh
 ./install.sh
 ```
 ### 1.1.1 ./install.sh文件里面的链接需要手动下载
-、、、
+
+```
 DOWNLOAD_ASSET_REGISTRY = dict(
     textures=dict(
         message="Downloading environment textures",
@@ -68,7 +69,8 @@ DOWNLOAD_ASSET_REGISTRY = dict(
 
 
 
-、、、
+
+```
 
 If you wish to setup custom directories for your data and checkpoints, we recommend setting up macros. Run the following script: `python -m mobipi.scripts.setup_macros`. This should create a `mobipi/macros_private.py`. In this private macros file, edit the following constants:
 
