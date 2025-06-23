@@ -236,6 +236,10 @@ python robocasa/robocasa/scripts/playback_dataset.py --dataset /media/zk/Element
 
 https://github.com/user-attachments/assets/872cd02d-6557-462b-a5b1-e8be55b1b11e
 
+## 制定导航目标"stoven"
+
+https://github.com/user-attachments/assets/c5207f05-b91f-4e59-98d6-2131f7d5cc8b
+
 
 
 ## 3 License
