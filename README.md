@@ -33,6 +33,38 @@ chmod +x install.sh
 ```
 ### 1.1.1 ./install.sh文件里面的链接需要手动下载
 、、、
+DOWNLOAD_ASSET_REGISTRY = dict(
+    textures=dict(
+        message="Downloading environment textures",
+        url="https://utexas.box.com/shared/static/otdsyfjontk17jdp24bkhy2hgalofbh4.zip",
+        folder=os.path.join(robocasa.__path__[0], "models/assets/textures"),
+        check_folder_exists=False,
+    ),
+    fixtures=dict(
+        message="Downloading fixtures",
+        url="https://utexas.box.com/shared/static/pobhbsjyacahg2mx8x4rm5fkz3wlmyzp.zip",
+        folder=os.path.join(robocasa.__path__[0], "models/assets/fixtures"),
+        check_folder_exists=False,
+    ),
+    objaverse=dict(
+        message="Downloading objaverse objects",
+        url="https://utexas.box.com/shared/static/ejt1kc2v5vhae1rl4k5697i4xvpbjcox.zip",
+        folder=os.path.join(robocasa.__path__[0], "models/assets/objects/objaverse"),
+        check_folder_exists=False,
+    ),
+    aigen_objs=dict(
+        message="Downloading AI-generated objects",
+        url="https://utexas.box.com/shared/static/os3hrui06lasnuvwqpmwn0wcrduh6jg3.zip",
+        folder=os.path.join(robocasa.__path__[0], "models/assets/objects/aigen_objs"),
+        check_folder_exists=False,
+    ),
+    generative_textures=dict(
+        message="Downloading AI-generated environment textures",
+        url="https://utexas.box.com/shared/static/gf9nkadvfrowkb9lmkcx58jwt4d6c1g3.zip",
+        folder=os.path.join(robocasa.__path__[0], "models/assets/generative_textures"),
+        check_folder_exists=False,
+    ),
+)
 
 
 
