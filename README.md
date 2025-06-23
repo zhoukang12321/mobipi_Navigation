@@ -234,6 +234,10 @@ python robocasa/robocasa/scripts/playback_dataset.py --dataset /media/zk/Element
 ```
 
 
+https://github.com/user-attachments/assets/872cd02d-6557-462b-a5b1-e8be55b1b11e
+
+
+
 ## 3 License
 
 This codebase is licensed under the terms of the MIT License.
