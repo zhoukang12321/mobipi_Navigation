@@ -274,6 +274,152 @@ https://github.com/user-attachments/assets/d41efe0d-b6a8-448c-be4f-830ec517c7b5
 | 单个 Episode 示例（如 demo_0） | 175 个时间步 | 动作数据 shape: `(175, 12)`，表示 175 个动作，每个动作 12 维       |
 
 
+
+---
+
+# 🧠 在 RoboTHOR 中生成带语言指令的数据集
+
+本项目介绍如何使用 [AI2-THOR](https://github.com/allenai/ai2thor) 和 [RoboTHOR](https://github.com/allenai/robothon) 框架生成包含自然语言指令的任务数据集（如“请去卧室”、“打开冰箱”），可用于训练和评估基于视觉与语言的导航策略（Vision-and-Language Navigation, VLN）。
+
+---
+
+## 📦 1. 环境准备
+
+### 安装依赖
+
+确保你已经安装了以下库：
+
+```bash
+pip install ai2thor robo-thor
+```
+
+> ⚠️ 推荐使用虚拟环境（如 `conda` 或 `venv`）来隔离依赖。
+
+---
+
+## 🛠️ 2. 编写生成脚本
+
+创建一个 Python 脚本（例如 `generate_language_dataset.py`），并添加如下内容作为基础模板：
+
+```python
+import ai2thor.controller
+from ai2thor.platform import CloudRendering
+import json
+
+# 初始化控制器
+controller = ai2thor.controller.Controller(
+    platform=CloudRendering,
+    scene="FloorPlan1",
+)
+
+# 开始录制
+controller.start()
+
+# 示例指令与对应动作映射
+instructions_and_actions = [
+    {"instruction": "Go to the bedroom.", "action": "go_to", "target": "bedroom"},
+    {"instruction": "Open the fridge.", "action": "open_object", "target": "fridge"},
+]
+
+dataset = []
+
+for item in instructions_and_actions:
+    print(f"Instruction: {item['instruction']}")
+
+    # 执行动作（此处为示例函数，需自行实现）
+    if item["action"] == "go_to":
+        success = move_to_room(controller, item["target"])
+    elif item["action"] == "open_object":
+        success = open_specific_object(controller, item["target"])
+
+    # 保存一条记录
+    dataset.append({
+        "instruction": item["instruction"],
+        "action_type": item["action"],
+        "target": item["target"],
+        "success": success
+    })
+
+# 停止录制
+controller.stop()
+
+# 保存为 JSON 文件
+with open("language_dataset.json", "w") as f:
+    json.dump(dataset, f, indent=4)
+```
+
+> 💡 注意：你需要自己定义 `move_to_room()` 和 `open_specific_object()` 函数，或者对接 AI2-THOR 提供的 API 来执行真实操作。
+
+---
+
+## 🧪 3. 示例数据结构
+
+生成的 JSON 数据格式如下所示：
+
+```json
+[
+  {
+    "instruction": "Go to the bedroom.",
+    "action_type": "go_to",
+    "target": "bedroom",
+    "success": true
+  },
+  {
+    "instruction": "Open the fridge.",
+    "action_type": "open_object",
+    "target": "fridge",
+    "success": true
+  }
+]
+```
+
+---
+
+## 📊 4. 可选增强功能（建议扩展）
+
+| 功能 | 描述 |
+|------|------|
+| 图像观测 | 添加 RGB 图像、深度图等图像数据 |
+| 多语言支持 | 添加中文、西班牙语等多语言指令 |
+| 场景多样性 | 遍历多个房间布局（`FloorPlan1` 到 `FloorPlan30`） |
+| 路径记录 | 记录机器人移动轨迹（位置、方向） |
+| 目标检测标签 | 添加目标对象的边界框或类别标签 |
+| 强化学习接口 | 将数据集封装成 Gym 兼容接口 |
+
+---
+
+## 🚀 5. 运行命令
+
+运行你的脚本以生成数据集：
+
+```bash
+python generate_language_dataset.py
+```
+
+生成的文件将保存为 `language_dataset.json`。
+
+---
+
+## ✅ 6. 成功后你可以做什么？
+
+- 将数据集用于训练 VLN（Vision-and-Language Navigation）模型；
+- 构建指令跟随机器人原型系统；
+- 发布自己的数据集并用于论文或开源项目；
+- 扩展到更多任务类型，如“拿取物品”、“打开抽屉”等。
+
+---
+
+## 📚 参考资料
+
+- [AI2-THOR GitHub](https://github.com/allenai/ai2thor)
+- [RoboTHOR Challenge](https://www.aicrowd.com/challenges/robothor-challenge-2022)
+- [Allen AI Documentation](https://ai2thor.allenai.org/)
+
+---
+
+
+
+
 ## 3 License
 
 This codebase is licensed under the terms of the MIT License.
