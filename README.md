@@ -1,6 +1,6 @@
-# Mobi-π: Mobilizing Your Robot Learning Policy
+# Mobile Your Robot Learning Policy
+# 机器人移动和导航策略学习
 
-Jingyun Yang, Isabella Huang*, Brandon Vu*, Max Bajracharya, Rika Antonova, Jeannette Bohg
 
 <a href='https://mobipi.github.io'><img src='https://img.shields.io/badge/Project-Page-Green'></a> <a href='https://arxiv.org/abs/2505.23692'><img src='https://img.shields.io/badge/Paper-Arxiv-red'></a>
 
