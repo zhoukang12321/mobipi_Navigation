@@ -293,7 +293,7 @@ https://github.com/user-attachments/assets/d41efe0d-b6a8-448c-be4f-830ec517c7b5
 pip install ai2thor robo-thor
 ```
 
-> ⚠️ 推荐使用虚拟环境（如 `conda` 或 `venv`）来隔离依赖。
+
 
 ---
 
@@ -401,7 +401,7 @@ python generate_language_dataset.py
 ---
 
 ## ✅ 6. 强化学习导航环境搭建
-
+A3C,PPO
 
 
 
