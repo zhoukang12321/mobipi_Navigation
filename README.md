@@ -250,8 +250,16 @@ python robocasa/robocasa/scripts/playback_dataset.py --dataset /media/zk/Element
 
 https://github.com/user-attachments/assets/872cd02d-6557-462b-a5b1-e8be55b1b11e
 
-## 制定导航目标"stoven"
-
+## 制定导航目标"ovens"
+### 更改demo_task.py代码，添加导航任务，第101行
+```
+            ("PrepareCoffee", "make coffee"),
+            ("NavigateKitchen","ovens")
+```
+### 执行程序，选择菜单第14个任务为导航任务
+```
+python /media/zk/Elements/sim/robocasa/robocasa/demos/demo_tasks.py
+```
 
 
 https://github.com/user-attachments/assets/d41efe0d-b6a8-448c-be4f-830ec517c7b5
