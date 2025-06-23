@@ -34,6 +34,10 @@ This repository includes the following contents:
 * 使用提供检查点运行基线方法的说明。
 * 可视化工具。
 * 论文中使用的绘图脚本。
+### 运行环境和配置
+ubuntu20.04 python3.10 CPU或者GPU都可以运行，CPU渲染效果不好，会出现卡顿或卡死的情况
+
+其他环境配置可以参考1.1
 
 ### 1.1 Installation
 
