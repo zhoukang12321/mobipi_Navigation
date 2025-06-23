@@ -45,7 +45,7 @@ conda activate mobipi
 chmod +x install.sh
 ./install.sh
 ```
-### 1.1.1 ./install.sh文件里面的链接需要手动下载
+### 1.1.1 ./install.sh文件里面的链接需要手动下载，robocasa资产
 
 ```
 DOWNLOAD_ASSET_REGISTRY = dict(
@@ -250,11 +250,11 @@ python robocasa/robocasa/scripts/playback_dataset.py --dataset /media/zk/Element
 
 https://github.com/user-attachments/assets/872cd02d-6557-462b-a5b1-e8be55b1b11e
 
-## 制定导航目标"ovens"
+## 指定导航目标"shelves"
 ### 更改demo_task.py代码，添加导航任务，第101行
 ```
             ("PrepareCoffee", "make coffee"),
-            ("NavigateKitchen","ovens")
+            ("NavigateKitchen","shelves")
 ```
 ### 执行程序，选择菜单第14个任务为导航任务
 ```
@@ -400,20 +400,10 @@ python generate_language_dataset.py
 
 ---
 
-## ✅ 6. 成功后你可以做什么？
+## ✅ 6. 强化学习导航环境搭建
 
-- 将数据集用于训练 VLN（Vision-and-Language Navigation）模型；
-- 构建指令跟随机器人原型系统；
-- 发布自己的数据集并用于论文或开源项目；
-- 扩展到更多任务类型，如“拿取物品”、“打开抽屉”等。
 
----
 
-## 📚 参考资料
-
-- [AI2-THOR GitHub](https://github.com/allenai/ai2thor)
-- [RoboTHOR Challenge](https://www.aicrowd.com/challenges/robothor-challenge-2022)
-- [Allen AI Documentation](https://ai2thor.allenai.org/)
 
 ---
 
@@ -429,3 +419,7 @@ This codebase is licensed under the terms of the MIT License.
 * The simulation code is based on [RoboCasa](https://robocasa.ai/), [RoboMimic](https://robomimic.github.io/), and [MimicGen](https://mimicgen.github.io/).
 * Code from [LeLaN](https://learning-language-navigation.github.io/) is used in baseline implementations.
 * Neural rendering implementation is based on [NerfStudio](https://docs.nerf.studio/).
+* 
+- [AI2-THOR GitHub](https://github.com/allenai/ai2thor)
+- [RoboTHOR Challenge](https://www.aicrowd.com/challenges/robothor-challenge-2022)
+- [Allen AI Documentation](https://ai2thor.allenai.org/)
