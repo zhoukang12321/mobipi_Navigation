@@ -234,7 +234,7 @@ We also provide visualization tools to inspect scenes and method performances.
 Interested in producing a result plot similar to ours? Check out `mobipi/vis/plot_sim_table.py` and `mobipi/vis/plot_real_table.py`.
 
 ### Navgation:
-##  下载robocasa导航演示数据集
+##  下载robocasa导航演示数据集，包含了
 ```
 https://public.boxcloud.com/d/1/b1!MAgh8V6WX8wT4BH1CjOm5X2B6fbFrJS5S67Dnkk64osI1dDKDymdt8rJ_XMjPXzoLFVHrNZVOnoSBHJkDuR5_6Bbl51Eqe-_c12IfTCBa6FpwPzvbKF6XVMaL7PdquJCJQ6SVU0aovfdlJ9EaJTqZOeFf-GKrnsUUsVeg9oKGDBeo1vkk4PWYGQjCRgWrEiv1_F-42NguMhk3LgIGctPfTN6Z_HwlK8CkFwDvJv0BYduU-s_wJAX0foP--dkJ0jESDMvbZ5pKmfKRMdau7PrSA-dyR8KDvRpKanndv48ppN26S_sBTw9DyTvcq4BPteOIwsQjt6iY79EVfMtf2N0EV7faTDFYztoUhX83PTby0VrusqyGveClv84tprYyasDtb_DFUMegaG2RyGav6OJcMoG9s0Ag6wqRuPtgbf7od2QXvZHKRIQJzkhKQyaGZKfLP33CtuueWEmD_LJNFAqb-yzy1ja8eVEBfoiHqOeV7FcW9McRWoDADGHkcWQ02HumMt31ebiv-z8wqsKA-g3dKxLDvluWejGWT77IboNDL0pcZNAHodAV9CFa-w3zLwXP0_z1ALqAhK6PbRcgOjIa3xMs5-UIaOO1q9338pt_AWp6z_v8bTJGKv6rgy301BYuKVS9TIdlLqPjxsbPijW9IUug5IaFQoNcw0S_lOwRd2X48nACM3cIGdbW039BtVOw6P6NmLP0Q04Ks76O4jLXqohisobtlPJNCMYZlTW8mUXDA1oLeyEXIG6-stiO8OwHbWdUEJjaFghataieYhZPn1ddqwaVJs29B-bDHtYHUH6IYcYkD1F7wAz_jHWbbsxLSa0zzDaTA7AzWPTrP8wOET384aattHPlOInyHRe8OkSr_fJp4z5pjHuf_FjOpBI16cAm4zgUdvJ9rml4VF1n00tq7goYfkg3stbbN9vyziizcLQDzUBF5x1falgNyetiZQbhJvpShd4RDv6JaZjyZogLraiErKGy6j0Xl7pVJ_GNJG6NBOb-E7Qu_UhrnYWGIRfvImAxJp3HoKItnPHd5jheU0ARknEy7rNpmJkLfHTulZOrHi2HZLVZ68byEJpjRvYTiaSvlnGQ-16XMKOcRfi81F6h9yRE6MpUy9f1_m7NSVBR60mvYrJW4HwZXvORNL71zOGrEzERqVWlgOEDMsrp22P3nm3zvXINyU7bV2tpWrx97_moUeLObivr0hwpNomHnf3oW1ydQaDkf4aqsYeAyASw6emF2CINf0lbv3lP3tZCy74b8ZclK5BahyWyUh5csRmpXxTnRDuHh79PuSVl1lbalYOkUGFulIfytDVdRqABGtdjHOl4DwqSMGWAEkuFtUP1WUTCsmRDGiqu_v1_eSixXHwezqrDPbzK1pnlY34uZtEWwXd9FPyLrcmmxd4Spo-7VfqvPbUQ33Zb7O9cLv7FyNmC4hdPdp420Sc-p8aur24o_V2vU-HJ5xYB06j3j30Zr09MOBes88T4Pw6AbIVV10W-X5W5VO_45JerAfs4Ntjr61XkFw-7yAGNaEUrNyuQXRFn2eOV_qL9Qd_jAEY/download
 ```
@@ -265,7 +265,13 @@ python /media/zk/Elements/sim/robocasa/robocasa/demos/demo_tasks.py
 https://github.com/user-attachments/assets/d41efe0d-b6a8-448c-be4f-830ec517c7b5
 
 
-
+| 类型                        | 数量         | 说明                                                                 |
+|-----------------------------|--------------|----------------------------------------------------------------------|
+| 文件格式                    | HDF5         | 包含机器人操作任务的演示数据                                         |
+| 总体结构                    | 分为 `data` 和 `mask` 两部分 | `data` 存放具体演示数据，`mask` 存放数据划分信息             |
+| Episodes（演示/轨迹）       | 至少 90 个   | 来自 `mask/90_demos`，每个 episode 是一次完整的任务执行过程         |
+| Transitions（时间步/示例）  | 15,500 个    | 所有 episode 中的 `(obs, action)` 对数量，可用于行为克隆或模仿学习  |
+| 单个 Episode 示例（如 demo_0） | 175 个时间步 | 动作数据 shape: `(175, 12)`，表示 175 个动作，每个动作 12 维       |
 
 
 ## 3 License
